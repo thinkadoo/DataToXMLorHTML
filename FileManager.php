@@ -19,7 +19,7 @@ class FileManager
         $this->tableName = $tablename;
     }
 
-    public function exportToXMLFiles($recordsArray)
+    public function exportToXMLFiles()
     {
 
         foreach($this->recordsArray as $record)
@@ -51,7 +51,7 @@ class FileManager
 
     }
 
-    public function exportToHTMLFiles($recordsArray)
+    public function exportToHTMLFiles()
     {
 
         $previousRecord = "#";

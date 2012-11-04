@@ -2,7 +2,7 @@
 
 <?php require_once 'Database.php'; require_once 'FileManager.php';
 
-    $mode = 'HTML';
+    $mode = 'XML';
 
     $xmlFolderLocation = '../xmlexport/';
     $htmllFolderLocation = '../htmlexport/';
@@ -12,13 +12,12 @@
     $resultArray = $databaseToArray->getArray();
 
     $fileExporter = new FileManager($resultArray, 'Releases');
-    $result = $fileExporter->getRecordsArray();
 
     if ($mode == 'XML')
     {
-        $fileExporter->exportToXMLFiles($resultArray);
-
+        $fileExporter->exportToXMLFiles();
         $filesCreatedList = $fileExporter->getFilesList();
+
         echo '<br>';
         foreach ($filesCreatedList as $filename)
         {
@@ -28,9 +27,9 @@
 
     if ($mode == 'HTML')
     {
-        $fileExporter->exportToHTMLFiles($resultArray);
-
+        $fileExporter->exportToHTMLFiles();
         $filesCreatedList = $fileExporter->getFilesList();
+        
         echo '<br>';
         foreach ($filesCreatedList as $filename)
         {
