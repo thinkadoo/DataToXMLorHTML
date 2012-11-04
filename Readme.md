@@ -3,7 +3,7 @@ This is a simple utility for generating XML or HTML files for each record in a D
 
 ---
 
-### Modes
+### Modes (output)
 
 Mode Switch in "index.php" file.
 
@@ -14,12 +14,19 @@ Mode Switch in "index.php" file.
 Generate XML files
 
 	Output to $xmlFolderLocation
-	example: '../xmlexport/' - will expect a folder named "xmlexport" at the same level as this project on the server.
+	e.g. '../xmlexport/' - will expect a folder named "xmlexport" at the same level as this project on the server.
 
 Generate HTML files
 
 	Output to $htmllFolderLocation
-	example: '../htmlexport/' - will expect a folder named "htmlexport" at the same level as this project on the server.
+	e.g. '../htmlexport/' - will expect a folder named "htmlexport" at the same level as this project on the server.
+	
+### Database (input)
+
+Creating an instance of the Database class sets up all the parameters at once.
+
+	$databaseToArray = new DataBase( host , username, password, database_name, table_name, record_count);
+	e.g. $databaseToArray = new DataBase('localhost', 'root', 'root', 'musicbrainz', 'mb_releases', 10000);
 
 ### Suggestions
 
