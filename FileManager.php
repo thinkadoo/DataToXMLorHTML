@@ -19,7 +19,7 @@ class FileManager
         $this->tableName = $tablename;
     }
 
-    public function exportToXMLFiles()
+    public function exportToXMLFiles($xmlFolderLocation)
     {
 
         foreach($this->recordsArray as $record)
@@ -40,7 +40,7 @@ class FileManager
             date_default_timezone_set("UTC");
             //$filename = 'export/'.$record['id'].'-' . date('Y-m-d-H-i-s', time()) . '.xml';
             $filename = ($record['id'] . '.xml');
-            $fp = fopen('../xmlexport/'.$filename, 'w');
+            $fp = fopen($xmlFolderLocation . $filename, 'w');
 
             fwrite($fp, $buffer);
 
@@ -51,7 +51,7 @@ class FileManager
 
     }
 
-    public function exportToHTMLFiles()
+    public function exportToHTMLFiles($htmllFolderLocation)
     {
 
         $previousRecord = "#";
@@ -152,7 +152,7 @@ class FileManager
             date_default_timezone_set("UTC");
             //$filename = 'export/'.$record['id'].'-' . date('Y-m-d-H-i-s', time()) . '.xml';
             $filename = ($record['id'] . '.html');
-            $fp = fopen('../htmlexport/'.$filename, 'w');
+            $fp = fopen($htmllFolderLocation . $filename, 'w');
 
             fwrite($fp, $buffer);
 
